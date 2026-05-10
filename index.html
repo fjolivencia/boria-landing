@@ -11,7 +11,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Boria — Consultoría en IA y Agentes Inteligentes" />
   <meta property="og:description" content="Asesoramiento estratégico e implementación de agentes de inteligencia artificial." />
-  <meta property="og:url" content="https://fjolivencia.github.io/boria-landing" />
+  <meta property="og:url" content="https://boria.com.ar" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -469,6 +469,113 @@
     .delay-3 { animation-delay: 0.3s; }
     .delay-4 { animation-delay: 0.4s; }
 
+    /* ── POLÍTICAS ── */
+    #politicas { background: var(--bg); }
+    .policy-tabs {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0;
+    }
+    .policy-tab {
+      padding: 0.7rem 1.4rem;
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: var(--muted);
+      font-family: var(--font-head);
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-bottom: -1px;
+    }
+    .policy-tab:hover { color: var(--text); }
+    .policy-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    .policy-content { display: none; }
+    .policy-content.active { display: block; }
+
+    .policy-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .policy-badge {
+      padding: 0.3rem 0.8rem;
+      background: rgba(110,231,183,0.1);
+      border: 1px solid rgba(110,231,183,0.3);
+      border-radius: 100px;
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .policy-date { color: var(--muted); font-size: 0.85rem; }
+
+    .policy-block {
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .policy-block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .policy-block h3 {
+      font-family: var(--font-head);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.85rem;
+      color: var(--text);
+    }
+    .policy-block p {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.75;
+      margin-bottom: 0.75rem;
+    }
+    .policy-block p:last-child { margin-bottom: 0; }
+    .policy-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.75rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .policy-list li {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.65;
+      padding-left: 1.25rem;
+      position: relative;
+    }
+    .policy-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* Footer links */
+    .footer-policy-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+    .footer-policy-links a {
+      color: var(--muted);
+      font-size: 0.82rem;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-policy-links a:hover { color: var(--accent); }
+    .footer-policy-links span { color: var(--border); }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       .nav-links { display: none; }
@@ -492,6 +599,7 @@
     <ul class="nav-links">
       <li><a href="#servicios">Servicios</a></li>
       <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#politicas">Políticas</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
     <a href="#contacto" class="btn btn-primary">Hablar con un experto</a>
@@ -715,16 +823,103 @@
   </div>
 </section>
 
+<!-- POLÍTICAS -->
+<div class="divider"></div>
+<section id="politicas">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-label">Legal</span>
+      <h2>Políticas y términos</h2>
+      <p class="section-desc">Documentos legales requeridos para el uso de nuestras plataformas y aplicaciones integradas, incluyendo la API de WhatsApp Business de Meta.</p>
+    </div>
+
+    <div class="policy-tabs">
+      <button class="policy-tab active" onclick="showPolicy('privacidad', this)">Política de Privacidad</button>
+      <button class="policy-tab" onclick="showPolicy('terminos', this)">Términos de Uso</button>
+      <button class="policy-tab" onclick="showPolicy('datos', this)">Gestión de Datos</button>
+      <button class="policy-tab" onclick="showPolicy('cookies', this)">Cookies</button>
+    </div>
+
+    <!-- PRIVACIDAD -->
+    <div class="policy-content active" id="policy-privacidad">
+      <div class="policy-meta"><span class="policy-badge">Vigente</span><span class="policy-date">Última actualización: 1 de enero de 2025</span></div>
+      <div class="policy-block"><h3>1. Responsable del tratamiento</h3><p><strong>Boria</strong> es la responsable del tratamiento de los datos personales recabados a través de este sitio web, sus aplicaciones y canales de comunicación habilitados, incluyendo la integración con WhatsApp Business API. Domicilio: Buenos Aires, República Argentina. Correo: <a href="mailto:fjolivencia@gmail.com" style="color:var(--accent)">fjolivencia@gmail.com</a></p></div>
+      <div class="policy-block"><h3>2. Datos que recopilamos</h3><ul class="policy-list"><li><strong>Datos de identificación:</strong> nombre, apellido, correo electrónico, número de teléfono.</li><li><strong>Datos de comunicación:</strong> mensajes enviados por WhatsApp Business, formularios o correo electrónico.</li><li><strong>Datos de uso:</strong> interacciones con nuestras plataformas, agentes de IA y automatizaciones.</li><li><strong>Datos técnicos:</strong> dirección IP, tipo de navegador, sistema operativo, páginas visitadas.</li><li><strong>Datos de empresa:</strong> nombre, sector y necesidades declaradas, cuando sean provistos voluntariamente.</li></ul></div>
+      <div class="policy-block"><h3>3. Finalidad del tratamiento</h3><ul class="policy-list"><li>Prestar los servicios de consultoría e implementación de agentes de IA contratados.</li><li>Gestionar la comunicación con clientes y potenciales clientes.</li><li>Operar y mejorar las integraciones con la API de WhatsApp Business de Meta.</li><li>Enviar información sobre nuestros servicios, con consentimiento previo.</li><li>Cumplir con obligaciones legales y regulatorias en la República Argentina.</li></ul></div>
+      <div class="policy-block"><h3>4. Base legal del tratamiento</h3><ul class="policy-list"><li><strong>Consentimiento:</strong> cuando se provean datos voluntariamente.</li><li><strong>Ejecución de contrato:</strong> cuando sea necesario para prestar los servicios.</li><li><strong>Interés legítimo:</strong> para mejora de servicios y comunicación comercial.</li><li><strong>Obligación legal</strong> conforme a la Ley 25.326 de Protección de Datos Personales.</li></ul></div>
+      <div class="policy-block"><h3>5. Compartir datos con terceros</h3><p>Boria no vende ni cede datos personales a terceros. Podemos compartirlos con:</p><ul class="policy-list"><li><strong>Proveedores tecnológicos:</strong> Meta Platforms (WhatsApp Business API), infraestructura cloud y herramientas de automatización, bajo acuerdos de confidencialidad.</li><li><strong>Autoridades competentes:</strong> cuando lo requiera la legislación vigente.</li></ul><p>Los datos de mensajería están también sujetos a la <a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank" rel="noopener" style="color:var(--accent)">Política de Privacidad de WhatsApp</a> y a las <a href="https://developers.facebook.com/policy/" target="_blank" rel="noopener" style="color:var(--accent)">Políticas de la Plataforma de Meta</a>.</p></div>
+      <div class="policy-block"><h3>6. Conservación de los datos</h3><p>Los datos se conservarán mientras sea necesario para la finalidad para la que fueron recabados y los plazos legales aplicables. Tras la finalización de la relación contractual, serán eliminados o anonimizados en un plazo máximo de 5 años.</p></div>
+      <div class="policy-block"><h3>7. Derechos del titular</h3><p>Conforme a la Ley 25.326, tenés derecho a acceso, rectificación, supresión, oposición, portabilidad y revocación del consentimiento. Para ejercerlos, escribí a <a href="mailto:fjolivencia@gmail.com" style="color:var(--accent)">fjolivencia@gmail.com</a>. Responderemos en 30 días hábiles.</p></div>
+      <div class="policy-block"><h3>8. Seguridad</h3><p>Implementamos medidas técnicas y organizativas para proteger los datos: cifrado HTTPS/TLS, control de accesos y revisión periódica de procedimientos de seguridad.</p></div>
+      <div class="policy-block"><h3>9. Transferencias internacionales</h3><p>Algunos proveedores (incluyendo Meta Platforms, Inc.) pueden procesar datos fuera de Argentina. En esos casos garantizamos la existencia de salvaguardas adecuadas conforme a la legislación argentina.</p></div>
+      <div class="policy-block"><h3>10. Contacto y autoridad de control</h3><p>Consultas: <a href="mailto:fjolivencia@gmail.com" style="color:var(--accent)">fjolivencia@gmail.com</a>. Si considerás que tus derechos fueron vulnerados, podés reclamar ante la <strong>Agencia de Acceso a la Información Pública (AAIP)</strong>.</p></div>
+    </div>
+
+    <!-- TÉRMINOS -->
+    <div class="policy-content" id="policy-terminos">
+      <div class="policy-meta"><span class="policy-badge">Vigente</span><span class="policy-date">Última actualización: 1 de enero de 2025</span></div>
+      <div class="policy-block"><h3>1. Aceptación</h3><p>Al acceder y usar los servicios de Boria, incluyendo este sitio web y los canales de comunicación habilitados (incluyendo WhatsApp Business), aceptás en su totalidad estos Términos de Uso.</p></div>
+      <div class="policy-block"><h3>2. Descripción de servicios</h3><p>Boria ofrece consultoría, asesoramiento estratégico e implementación de agentes de inteligencia artificial para empresas y emprendedores. Los servicios específicos se detallan en cada propuesta o contrato particular.</p></div>
+      <div class="policy-block"><h3>3. Uso de WhatsApp Business</h3><p>Al iniciar una conversación o proporcionar tu número de teléfono aceptás: recibir mensajes relacionados exclusivamente con los servicios solicitados; que la comunicación está sujeta a las Políticas de Meta; no usar el canal para contenido ilegal u ofensivo. Podés darte de baja respondiendo "STOP" o escribiendo a <a href="mailto:fjolivencia@gmail.com" style="color:var(--accent)">fjolivencia@gmail.com</a>.</p></div>
+      <div class="policy-block"><h3>4. Propiedad intelectual</h3><p>Los contenidos de este sitio y las soluciones desarrolladas por Boria (agentes de IA, flujos, documentación) son propiedad de Boria o sus licenciantes. Queda prohibida su reproducción sin autorización expresa.</p></div>
+      <div class="policy-block"><h3>5. Limitación de responsabilidad</h3><p>Boria no será responsable por daños indirectos o consecuentes derivados del uso de los servicios. La responsabilidad máxima no excederá el monto abonado en los 3 meses anteriores al evento que originó el daño.</p></div>
+      <div class="policy-block"><h3>6. Modificaciones</h3><p>Podemos modificar estos Términos en cualquier momento. Los cambios se notificarán con al menos 15 días de anticipación. El uso continuado implica aceptación de los nuevos términos.</p></div>
+      <div class="policy-block"><h3>7. Ley aplicable y jurisdicción</h3><p>Estos Términos se rigen por las leyes de la República Argentina. Cualquier controversia se someterá a los tribunales ordinarios de la Ciudad Autónoma de Buenos Aires.</p></div>
+    </div>
+
+    <!-- GESTIÓN DE DATOS -->
+    <div class="policy-content" id="policy-datos">
+      <div class="policy-meta"><span class="policy-badge">Vigente</span><span class="policy-date">Última actualización: 1 de enero de 2025</span></div>
+      <div class="policy-block"><h3>Política de Gestión de Datos — Meta Platform</h3><p>Este documento describe cómo Boria gestiona los datos obtenidos a través de la <strong>API de WhatsApp Business de Meta</strong>, en cumplimiento con las <a href="https://developers.facebook.com/policy/" target="_blank" rel="noopener" style="color:var(--accent)">Políticas de la Plataforma de Meta</a>.</p></div>
+      <div class="policy-block"><h3>Datos obtenidos a través de Meta</h3><ul class="policy-list"><li><strong>Mensajes de WhatsApp:</strong> contenido de conversaciones iniciadas por el usuario.</li><li><strong>Número de teléfono:</strong> usado exclusivamente para gestionar la comunicación solicitada.</li><li><strong>Nombre de perfil:</strong> nombre público de WhatsApp cuando sea visible.</li><li><strong>Metadatos:</strong> fecha, hora y estado de entrega de los mensajes.</li></ul></div>
+      <div class="policy-block"><h3>Uso permitido</h3><p>Boria usa los datos de Meta únicamente para: responder consultas y brindar los servicios solicitados; mejorar la calidad de la atención y los agentes de IA; y cumplir obligaciones legales.</p><p><strong>Prohibido expresamente:</strong> vender o compartir datos con terceros no autorizados; usar los datos para publicidad no consentida; transferir datos a sistemas no seguros.</p></div>
+      <div class="policy-block"><h3>Almacenamiento y retención</h3><p>Los datos de WhatsApp se almacenan en servidores seguros con cifrado en reposo y en tránsito (TLS). Se conservan un máximo de <strong>12 meses</strong> desde el último contacto, tras lo cual son eliminados de forma permanente.</p></div>
+      <div class="policy-block"><h3>Eliminación de datos</h3><p>Podés solicitar la eliminación de todos tus datos en cualquier momento enviando un correo a <a href="mailto:fjolivencia@gmail.com" style="color:var(--accent)">fjolivencia@gmail.com</a> indicando "Solicitud de eliminación de datos". Procesaremos la solicitud en un máximo de 30 días hábiles y confirmaremos la eliminación.</p></div>
+      <div class="policy-block"><h3>Cumplimiento con Meta</h3><p>Boria cumple con todas las políticas vigentes de Meta para el uso de la API de WhatsApp Business, incluyendo: Política de la Plataforma de Meta, Política Comercial de Meta, Términos del Servicio de WhatsApp Business y Requisitos de Mensajería de WhatsApp Business.</p></div>
+    </div>
+
+    <!-- COOKIES -->
+    <div class="policy-content" id="policy-cookies">
+      <div class="policy-meta"><span class="policy-badge">Vigente</span><span class="policy-date">Última actualización: 1 de enero de 2025</span></div>
+      <div class="policy-block"><h3>1. ¿Qué son las cookies?</h3><p>Las cookies son pequeños archivos de texto que se almacenan en tu dispositivo al visitar un sitio web. Permiten recordar preferencias y mejorar la experiencia de navegación.</p></div>
+      <div class="policy-block"><h3>2. Cookies que utilizamos</h3><ul class="policy-list"><li><strong>Técnicas (necesarias):</strong> imprescindibles para el funcionamiento del sitio. No requieren consentimiento.</li><li><strong>Analíticas:</strong> permiten entender el uso del sitio de forma anonimizada.</li><li><strong>De preferencias:</strong> recuerdan configuraciones elegidas por el usuario.</li></ul><p>Este sitio <strong>no utiliza cookies publicitarias</strong> ni comparte datos con redes de publicidad.</p></div>
+      <div class="policy-block"><h3>3. Gestión</h3><p>Podés configurar tu navegador para rechazar o eliminar cookies. Ten en cuenta que deshabilitar ciertas cookies puede afectar la funcionalidad del sitio.</p></div>
+      <div class="policy-block"><h3>4. Actualizaciones</h3><p>Esta política puede actualizarse periódicamente. Te notificaremos sobre cambios significativos a través de este sitio web.</p></div>
+    </div>
+
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="container">
     <a href="#" class="footer-logo">Bori<span>a</span></a>
     <p class="footer-tagline">Consultoría en Inteligencia Artificial y Agentes Inteligentes</p>
-    <p class="footer-copy">© 2024 Boria. Todos los derechos reservados. · Buenos Aires, Argentina</p>
+    <div class="footer-policy-links">
+      <a href="#politicas" onclick="showPolicy('privacidad',null)">Política de Privacidad</a>
+      <span>·</span>
+      <a href="#politicas" onclick="showPolicy('terminos',null)">Términos de Uso</a>
+      <span>·</span>
+      <a href="#politicas" onclick="showPolicy('datos',null)">Gestión de Datos</a>
+    </div>
+    <p class="footer-copy">© 2025 Boria. Todos los derechos reservados. · Buenos Aires, Argentina</p>
   </div>
 </footer>
 
 <script>
+  // Policy tabs
+  function showPolicy(id, btn) {
+    document.querySelectorAll('.policy-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.policy-tab').forEach(el => el.classList.remove('active'));
+    document.getElementById('policy-' + id).classList.add('active');
+    if (btn) btn.classList.add('active');
+    else {
+      const tabs = document.querySelectorAll('.policy-tab');
+      const map = ['privacidad','terminos','datos','cookies'];
+      tabs[map.indexOf(id)]?.classList.add('active');
+    }
+  }
+
   // Smooth active nav link
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a');
